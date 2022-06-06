@@ -7,7 +7,7 @@ function signUp(req, res){
     const {name_user, lastname, email, password, repeatPassword} = req.body
     user.name_user = name_user
     user.lastname = lastname
-    user.email = email
+    user.email = email.toLowerCase()
     /*Por default almacenamos el rol y si es un usuario activo o no */
     user.role = "admin"
     user.active = true
