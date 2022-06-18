@@ -5,6 +5,7 @@ const app = express()
 const {API_VERSION} = require("./config")
 
 const userRoutes = require("./src/routes/userRoute")
+const authRoutes = require("./src/routes/auth")
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -14,6 +15,7 @@ app.use(cors())
 
 /*Creación de los endpoints del proyecto */
 app.use(`/api/${API_VERSION}`, userRoutes)
+app.use(`/api/${API_VERSION}`, authRoutes)
 
 /*Configuración de los header HTTP */
 module.exports = app
