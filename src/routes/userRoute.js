@@ -12,20 +12,8 @@ api.get("/users", [middleware_user_authenticated.ensureAuth], UserController.get
 api.get("/active-users", [middleware_user_authenticated.ensureAuth], UserController.getActiveUsers)
 api.put("/uploadavatar/:id",[middleware_user_authenticated.ensureAuth, md_upload_avatar],UserController.uploadAvatar);
 api.put("/updateuser/:id",[middleware_user_authenticated.ensureAuth],UserController.updateUser);
-api.put(
-    "/activateuser/:id",
-    [middleware_user_authenticated.ensureAuth],
-    UserController.activateUser
-);
-api.delete(
-    "/deleteuser/:id",
-    [middleware_user_authenticated.ensureAuth],
-    UserController.deleteUser
-);
-api.post(
-    "/signupadmin",
-    [middleware_user_authenticated.ensureAuth],
-    UserController.signUpAdmin
-);
+api.put("/activateuser/:id",[middleware_user_authenticated.ensureAuth],UserController.activateUser);
+api.delete("/deleteuser/:id",[middleware_user_authenticated.ensureAuth],UserController.deleteUser);
+api.post("/signupadmin",[middleware_user_authenticated.ensureAuth],UserController.signUpAdmin);
 
 module.exports = api
